@@ -24,4 +24,4 @@ Pillow
 
 numpy
 
-cv2 (included)
+cv2 (use file located at https://drive.google.com/file/d/0B_8BvSoNTOu6bFVZQVJ4dmxsZzQ/view?usp=sharing)
