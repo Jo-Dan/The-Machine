@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 """
-Created on Tue Apr 12 17:34:59 2016
 Draw Person of Interest Squares
-@author: Jo-dan
+
+By Jo-dan
 """
 
 import cv2
