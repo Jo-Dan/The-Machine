@@ -12,7 +12,7 @@ import threading
 import cv2
 from PIL import Image
 import numpy as np
-import queue
+import Queue as queue
 # import requests
 
 # my functions
