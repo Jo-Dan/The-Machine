@@ -213,7 +213,7 @@ def overlayimg(back, fore, x, y, w, h):
 
 
 def poi_image(frame, x, y, w, h, sub_type):
-    assets_path = "D:\\BackUp\\F\\Users\\Jordan\\Documents\\Python\\Face Rec\\gui\\machine\\"
+    assets_path = "gui\\machine\\"
     box_path = assets_path + sub_type.lower() + '_focus.tif'
     box = cv2.imread(box_path)
     # cv2.imshow('wins', box)
@@ -225,9 +225,9 @@ def poi_image(frame, x, y, w, h, sub_type):
     
 def poi_infobox(frame, x, y, subject_number, subject_name, subject_type):
     multiple = 0.50
-    infobox_path = "D:\BackUp\F\Users\Jordan\Documents\Python\Face Rec\gui\machine\infobox_slim_short_out.tif"
+    infobox_path = "gui\machine\infobox_slim_short_out.tif"
     infobox = cv2.imread(infobox_path)    
-    grey_path = "D:\BackUp\F\Users\Jordan\Documents\Python\Face Rec\gui\machine\infobox_slim_in_short.tif"
+    grey_path = "gui\machine\infobox_slim_in_short.tif"
     grey = cv2.imread(grey_path)
     w = int(400 * multiple)
     h = int(219 * multiple)
