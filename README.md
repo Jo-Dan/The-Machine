@@ -61,7 +61,7 @@ To exit the program simply type (or say, if you are in voice mode) "exit".
 
 | Package/module 								| pip command 								|
 | --------------------------------------------- | ----------------------------------------- |
-| pyglet (requires [AVbin](avbin.github.io)) 	| `pip install pyglet` 						|
+| pyglet (requires [AVbin](http://avbin.github.io/)) 	| `pip install pyglet` 						|
 | speech_recognition 							| `pip install SpeechRecognition` 			|
 | natural.text 									| `pip install natural` 					|
 | Pyvona 										| `pip install pyvona` 						|
