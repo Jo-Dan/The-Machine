@@ -190,7 +190,11 @@ def facerec():
         unknown_present = False
         threat_present = False
         analog_present = False
-        grey_predict = cv2.cvtColor(frame_nobord, cv2.COLOR_BGR2GRAY)
+        try:
+            grey_predict = cv2.cvtColor(frame_nobord, cv2.COLOR_BGR2GRAY)
+        except:
+            print "No camera stream found, exit the program and try another camera number"
+            break
         predict_image = np.array(grey_predict, 'uint8')
         faces = facecascade.detectMultiScale(predict_image, 1.03, 5, 0, (150, 150))
         for (x, y, w, h) in faces:
