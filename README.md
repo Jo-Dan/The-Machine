@@ -7,7 +7,7 @@ A Python program designed to emulate The Machine from Person of Interest.
 
 ###Speech
 
-pyglet
+pyglet (requires avbin)
 
 speech_recognition
 
