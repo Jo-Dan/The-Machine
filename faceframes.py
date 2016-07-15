@@ -246,7 +246,7 @@ def poi_infobox(frame, x, y, subject_number, subject_name, subject_type):
     return overlayimg(frame, infobox, x, y, w, h)
 
 def samaritan_image(frame, x, y, w, h, sub_type):
-    assets_path = "D:\\BackUp\\F\\Users\\Jordan\\Documents\\Python\\Face Rec\\gui\\samaritan\\"
+    assets_path = "gui\\samaritan\\"
     if sub_type == 'ADMIN' or sub_type == 'ANALOG':
         stype = 'irrelevant'
     elif sub_type == 'THREAT':
