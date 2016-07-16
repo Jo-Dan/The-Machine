@@ -19,7 +19,7 @@ Install everything manually (see [Dependencies](https://github.com/Jo-Dan/The-Ma
 Join the discussion on this [thread on /r/PersonOfInterest](https://www.reddit.com/r/PersonOfInterest/comments/4suknb/the_machine_program_python/)
 
 ##### Face training
-To train it to recognize your face, place photos of your face into "/facebase/1/", following the naming scheme ""facebase/1/subject01.(1).jpg" where "1" and "01" are the subject number. When you run the program choose to "(r)etrain". 
+To train it to recognize your face, place photos of your face into "/facebase/1/", following the naming scheme "facebase/1/subject01.(1).jpg" where "1" and "01" are the subject number. When you run the program choose to "(r)etrain". 
 
 Once some photos are trained you can add more using the program. Once your face is visible in the frame simply type "train as yourname" into the console. The program will then proceed to take 10 still images of your face. It can be slightly buggy at this stage so if the webcam window appears frozen simply hit enter in the console, this should allow the code to progress as normal.
 
