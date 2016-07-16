@@ -38,7 +38,11 @@ def get_mp3(text):
     lowertext = text.lower()
     words = lowertext.split()
     player.queue(beep)
-    for word in words:
+    for inword in words:
+        try:
+            word = int(inword)
+        except:
+            word = inword
         save_path = cwd + '\\tts_downloads\\{}.mp3'.format(word)
         if os.path.isfile(save_path) == False:
             # tts = gTTS(word, 'en-us')
