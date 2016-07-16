@@ -390,7 +390,7 @@ def facerec():
                     else:
                         file_number = len(glob.glob(face_database + "\\{}\\*".format(int(new_user_num)))) + 2
                         sys.stdout.flush()
-                        os.rename(frame_save_path, frame_save_path.replace('jpg', "({})".format(file_number)))
+                        os.rename(frame_save_path, frame_save_path.replace('jpg', "({}).jpg".format(file_number)))
                     print "Captured frame {} of 10".format(frameno)
 
                     grey_predict = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
