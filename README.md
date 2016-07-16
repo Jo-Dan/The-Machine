@@ -8,7 +8,8 @@ It uses [OpenCV](http://opencv.org/) for face recognition and accepts voice comm
 ##### The easy way
 1. Install [WinPython](https://sourceforge.net/projects/winpython/files/)  
 2. Run `pip install -r requirements.txt`  
-3. You're done :)  
+3. Install [AVbin](http://avbin.github.io/)
+4. You're done :)  
 
 ##### The manual way
 Install everything manually (see [Dependencies](https://github.com/Jo-Dan/The-Machine/blob/master/README.md#dependencies) below)
