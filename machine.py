@@ -12,7 +12,7 @@ import threading
 import cv2
 from PIL import Image
 import numpy as np
-import Queue as queue
+import Queue
 # import requests
 
 # my functions
@@ -166,8 +166,8 @@ if shape_type == 'p' or shape_type == 'o':
     threat_colour = (000, 000, 255)
     back_colour = (000, 000, 000)
 
-q = queue.Queue()
-q2 = queue.Queue()
+q = Queue.Queue()
+q2 = Queue.Queue()
 
 def facerec():
     """ Face recognition and video stream"""
@@ -406,7 +406,7 @@ def facerec():
                 log_file.write('   Recogniser Training Loaded \n')
                 print "Training Complete. {} set as {}".format(subject_name[int(new_user_num)],
                                                                subject_type[int(new_user_num)])
-
+                q.put('trained')
             elif queuein == 'exit':
                 print 'exiting'
                 exitprog = True
@@ -436,7 +436,11 @@ def commands():
             time.sleep(.001)
             present = q.get(block=False)
             if 'train' in user_input:
+                while not q.empty():
+                    q.get()
                 q2.put(user_input)
+                while q.get() != 'trained':
+                    time.sleep(0.01)
             elif 'exit' in user_input:
                 q2.put('exit')
                 break
@@ -468,17 +472,22 @@ def commands():
                         print "Invalid designation"
                 elif 'names' in user_input:
                     if vocal_input:
-                        get_mp3(get_nato(str(subject_name).lower()))
+                        namelist = ""
+                        for name in subject_name[1:]:
+                            namelist += get_nato(name) + ";"
+                        get_mp3(namelist[:len(namelist) - 1])
                     else:
-                        print subject_name
+                        print subject_name[1:]
+                        #print str(subject_name[1:]).replace(',', ';').replace("[", "").replace("]","").replace("'","")
                 elif 'voice' in user_input:
                     if not vocal_input:
                         get_mp3('Can you hear me?')
                         confirmation = get_speech()
-                        if confirmation in ['yes', 'absolutely', 'yeah', 'hell yes']:
-                            vocal_input = True
-                            get_mp3('good ; analog interface enabled')
-                        else:
+                        for yes in ['yes', 'absolutely', 'yeah']:
+                            if yes in confirmation:
+                                vocal_input = True
+                                get_mp3('good ; analog interface enabled')
+                        if not vocal_input:
                             get_mp3('analog interface not detected ; voice commands disabled')
                     else:
                         get_mp3('analog interface disabled')
