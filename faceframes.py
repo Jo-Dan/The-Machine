@@ -223,11 +223,20 @@ def poi_image(frame, x, y, w, h, sub_type):
     return overlayimg(frame, box, x, y, w, h)
     
 def poi_infobox(frame, x, y, subject_number, subject_name, subject_type):
+    if subject_type == 'ADMIN' or subject_type == 'ANALOG':
+        id_colour = (58, 238, 247)
+    elif subject_type == 'USER':
+        id_colour = (243, 124, 13)
+    elif subject_type == 'THREAT':
+        id_colour = (000, 000, 255)
+    else:
+        id_colour = (000, 000, 000)
     multiple = 0.50
     infobox_path = "gui\machine\infobox_slim_short_out.tif"
     infobox = cv2.imread(infobox_path)    
     grey_path = "gui\machine\infobox_slim_in_short.tif"
     grey = cv2.imread(grey_path)
+    
     w = int(400 * multiple)
     h = int(219 * multiple)
     
@@ -237,12 +246,27 @@ def poi_infobox(frame, x, y, subject_number, subject_name, subject_type):
     id_type = "{} IDENTIFIED".format(subject_type)
     id_alias = "ALIAS: {}".format(subject_name)
     id_num = "***-***-{}".format(str(subject_number).zfill(3))
-    cv2.putText(infobox, id_type, (15, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+    cv2.putText(infobox, id_type, (15, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, id_colour, 2)
     cv2.putText(infobox, id_alias, (15, 92), cv2.FONT_HERSHEY_SIMPLEX, 1, (12, 12, 12), 2)
     cv2.putText(infobox, "SSN:", (15, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
     cv2.putText(infobox, id_num, (125, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
     
     return overlayimg(frame, infobox, x, y, w, h)
+    
+def poi_statusbox(frame, x, y, uptime, subjectno):
+    multiple = 0.50
+    statusbox_path = "gui\machine\statusbox.tif"
+    statusbox = cv2.imread(statusbox_path)
+
+    w = int(500 * multiple)
+    h = int(219 * multiple)
+    
+    cv2.putText(statusbox, "STATUS:", (15, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+    cv2.putText(statusbox, "ACTIVE", (150, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(statusbox, "UPTIME: {}".format(uptime), (15, 92), cv2.FONT_HERSHEY_SIMPLEX, 1, (12, 12, 12), 2)
+    cv2.putText(statusbox, "SUBJECTS DETECTED: {}".format(subjectno), (15, 135), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+    
+    return overlayimg(frame, statusbox, x, y, w, h)
 
 def samaritan_image(frame, x, y, w, h, sub_type):
     assets_path = "gui\\samaritan\\"

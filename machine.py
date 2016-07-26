@@ -5,6 +5,7 @@ By Jo-dan
 """
 import sys
 import time
+import timeit
 import csv
 import glob
 import os
@@ -175,9 +176,11 @@ def facerec():
     nbr_old = [-1]
     nbr_predicted = 0
     display_infobox = False
+    display_status = False
     present = 'unknown'
     exitprog = False
     accesstext = False
+    starttime = int(timeit.default_timer())
 
     while True:
         # read frame by frame
@@ -232,6 +235,8 @@ def facerec():
                 if display_infobox:
                     frame = faceframes.poi_infobox(frame, x+w+30, y+int(h*.5-50), nbr_predicted,
                                                    subject_name[nbr_predicted], subject_type[nbr_predicted])
+                    
+                    
 #                subco = (x-20, y+h+45)
 #                nameco = (x-20, y+h+70)
 #                typeco = (x-20, y+h+95)
@@ -360,6 +365,29 @@ def facerec():
                     (0, vcheight - 10), font, 1, (0, 0, 0), 4)
         cv2.putText(frame, 'Camera ' + str(Camera_Number),
                     (0, vcheight - 10), font, 1, (255, 255, 255), 1)
+        
+        stoptime = int(timeit.default_timer())
+        uptimesec = stoptime - starttime
+        if uptimesec > 59:
+            mins, secs = divmod(round(uptimesec), 60)
+            
+            if mins > 59:
+                hrs, mins = divmod(mins, 60)
+                if hrs != 1:
+                    uptime = "{} HOURS, {}, MINUTES".format(int(hrs), int(mins))
+                else:
+                    uptime = "{} HOUR, {}, MINUTES".format(int(hrs), int(mins))
+            else:
+                if mins != 1:
+                    uptime = "{} MINUTES, {} SECONDS".format(int(mins), int(secs))
+                else:
+                    uptime = "{} MINUTE, {} SECONDS".format(int(mins), int(secs))
+        else:
+            uptime = "{} SECONDS".format(int(uptimesec))
+            
+        if display_status:
+                    frame = faceframes.poi_statusbox(frame, 0, vcheight - 150, uptime, len(faces))
+        
         q.put(present)
         if not q2.empty():
             queuein = q2.get(block=False)
@@ -368,6 +396,12 @@ def facerec():
                     display_infobox = True
                 else:
                     display_infobox = False
+            elif queuein == 'status':
+                if not display_status:
+                    display_status = True
+                else:
+                    display_status = False
+                
             elif 'train' in queuein:
                 train_as = queuein.replace("train as ", "")
                 print "Training as {}".format(train_as)
@@ -451,6 +485,8 @@ def commands():
             elif present == 'analog' or present == 'admin':
                 if user_input == 'info':
                     q2.put('info')
+                elif user_input == 'status':
+                    q2.put('status')
                 elif 'set' in user_input:
                     set_comm = user_input.replace('set ', "").split(' as ')
                     if set_comm[1].upper() in subject_types:
