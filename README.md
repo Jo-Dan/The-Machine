@@ -33,6 +33,8 @@ If you are an ADMIN or ANALOG you can also change a subject's designation using 
 ##### Info
 Typing the command "info" into the console (you must be an ADMIN or ANALOG to use this command) will bring up an information box on the camera stream, similar to the one in the last season.
 
+Typing the command "status" into the console (you must be an ADMIN or ANALOG to use this command) will bring up a status box containing the program uptime and number of subjects detected.
+
 ##### Voice
 If you are an ANALOG interface or an ADMIN you can type "voice" into the console, this activates the voice command mode, this essentially allows you to use any other command via speech recognition. To go back to typing simply give the command "voice" again.
 
