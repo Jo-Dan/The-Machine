@@ -274,14 +274,14 @@ def poi_statusbox(frame, x, y, uptime, subjectno):
     statusbox_path = "gui\machine\statusbox_new.tif"
     statusbox = cv2.imread(statusbox_path)
    
-    w = int(576 * multiple)
-    h = int(164 * multiple)
+    w = int(580 * multiple)
+    h = int(190 * multiple)
 
 
     cv2.putText(statusbox, "o", (30, 33), cv2.FONT_HERSHEY_SIMPLEX, .25, (000, 255, 000), 15)
-    cv2.putText(statusbox, "PROGRAM: THE MACHINE", (55, 45), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (220, 220, 220), 3)
+    cv2.putText(statusbox, "PROGRAM: THE MACHINE", (55, 45), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (220, 220, 220), 2)
     cv2.putText(statusbox, "STATUS:", (10, 85), cv2.FONT_HERSHEY_SIMPLEX, 1, (013, 013, 013), 2)
-    cv2.putText(statusbox, "ACTIVE", (150, 85), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)
+    cv2.putText(statusbox, "ACTIVE", (150, 85), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv2.putText(statusbox, "UPTIME: {}".format(uptime), (15, 130), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
     cv2.putText(statusbox, "SUBJECTS DETECTED: {}".format(subjectno), (15, 168), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
     
