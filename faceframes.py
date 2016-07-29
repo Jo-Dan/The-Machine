@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Draw Person of Interest Squares
 
@@ -253,18 +254,36 @@ def poi_infobox(frame, x, y, subject_number, subject_name, subject_type):
     
     return overlayimg(frame, infobox, x, y, w, h)
     
-def poi_statusbox(frame, x, y, uptime, subjectno):
+def poi_statusbox_old(frame, x, y, uptime, subjectno):
     multiple = 0.50
     statusbox_path = "gui\machine\statusbox.tif"
     statusbox = cv2.imread(statusbox_path)
 
-    w = int(500 * multiple)
-    h = int(219 * multiple)
+    w = int(576 * multiple)
+    h = int(164 * multiple)
     
     cv2.putText(statusbox, "STATUS:", (15, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
     cv2.putText(statusbox, "ACTIVE", (150, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv2.putText(statusbox, "UPTIME: {}".format(uptime), (15, 92), cv2.FONT_HERSHEY_SIMPLEX, 1, (12, 12, 12), 2)
     cv2.putText(statusbox, "SUBJECTS DETECTED: {}".format(subjectno), (15, 135), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+    
+    return overlayimg(frame, statusbox, x, y, w, h)
+
+def poi_statusbox(frame, x, y, uptime, subjectno):
+    multiple = .5
+    statusbox_path = "gui\machine\statusbox_new.tif"
+    statusbox = cv2.imread(statusbox_path)
+   
+    w = int(576 * multiple)
+    h = int(164 * multiple)
+
+
+    cv2.putText(statusbox, "o", (30, 33), cv2.FONT_HERSHEY_SIMPLEX, .25, (000, 255, 000), 15)
+    cv2.putText(statusbox, "PROGRAM: THE MACHINE", (55, 45), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (220, 220, 220), 3)
+    cv2.putText(statusbox, "STATUS:", (10, 85), cv2.FONT_HERSHEY_SIMPLEX, 1, (013, 013, 013), 2)
+    cv2.putText(statusbox, "ACTIVE", (150, 85), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)
+    cv2.putText(statusbox, "UPTIME: {}".format(uptime), (15, 130), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+    cv2.putText(statusbox, "SUBJECTS DETECTED: {}".format(subjectno), (15, 168), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
     
     return overlayimg(frame, statusbox, x, y, w, h)
 

@@ -129,9 +129,9 @@ def get_images_and_labels(path, show=True):
     print "\nTraining complete"
     return images, labels
 
-def database_load(load):
+def database_load(retrain=False):
     """ Rebuilds or loads face database"""
-    if str(load) == 'r':
+    if retrain:
         showloaded = raw_input("Display images loaded? (slower) (y/n) >>> ")
         if showloaded == 'y':
             images, labels = get_images_and_labels(face_database)
@@ -142,13 +142,10 @@ def database_load(load):
         recognizer.train(images, np.array(labels))
         recognizer.save('trainingsaved')
         log_file.write('   Recognizer Retrained \n')
-    elif str(load) == 'l':
+    elif not retrain:
         recognizer.load('trainingsaved')
         log_file.write('   Recogniser Training Loaded \n')
-    else:
-        print "Unknown command, loading..."
-        recognizer.load('trainingsaved')
-        log_file.write('   Recogniser Training Loaded \n')
+
     cv2.destroyAllWindows()
 #shape_type = raw_input("(b)oxes, (c)circles, poi (o)verlay,\
 # samaritan (so)overlay, (p)oi or (s)amaritan? >>> ")
@@ -156,7 +153,13 @@ shape_type = 'o'
 log_file.write('   Run in "{}" Mode. \n'.format(shape_type))
 
 database = raw_input("Would you like to (r)ebuild, or (l)oad the database? >>> ")
-database_load(database)
+if database.upper() == 'R':
+    database_load(True)
+elif database.upper() == 'L':
+    database_load(False)
+else:
+    print "Unknown command, loading existing database..."
+    database_load(False)
 
 
 if shape_type == 'p' or shape_type == 'o':
@@ -370,18 +373,24 @@ def facerec():
         uptimesec = stoptime - starttime
         if uptimesec > 59:
             mins, secs = divmod(round(uptimesec), 60)
-            
             if mins > 59:
                 hrs, mins = divmod(mins, 60)
-                if hrs != 1:
-                    uptime = "{} HOURS, {}, MINUTES".format(int(hrs), int(mins))
+                if hrs >= 24:
+                    days, hrs = divmod(hrs, 24)
+                    if days != 1:
+                        uptime = "{} DAYS, {} HOURS".format(int(days), int(hrs))
+                    else:
+                        uptime = "1 DAY, {} HOURS".format(int(hrs))
                 else:
-                    uptime = "{} HOUR, {}, MINUTES".format(int(hrs), int(mins))
+                    if hrs != 1:
+                        uptime = "{} HOURS, {} MINUTES".format(int(hrs), int(mins))
+                    else:
+                        uptime = "1 HOUR, {} MINUTES".format(int(mins))
             else:
                 if mins != 1:
                     uptime = "{} MINUTES, {} SECONDS".format(int(mins), int(secs))
                 else:
-                    uptime = "{} MINUTE, {} SECONDS".format(int(mins), int(secs))
+                    uptime = "1 MINUTE, {} SECONDS".format(int(secs))
         else:
             uptime = "{} SECONDS".format(int(uptimesec))
             
@@ -436,7 +445,7 @@ def facerec():
                                     font, 1, (0, 0, 0), 2)
                     cv2.imshow('stream', train_frame)
                     cv2.waitKey(500)
-                database_load('r')
+                database_load(True)
                 log_file.write('   Recogniser Training Loaded \n')
                 print "Training Complete. {} set as {}".format(subject_name[int(new_user_num)],
                                                                subject_type[int(new_user_num)])
@@ -469,6 +478,8 @@ def commands():
                 q.get()
             time.sleep(.001)
             present = q.get(block=False)
+            if 'retrain' in user_input:
+                database_load(True)
             if 'train' in user_input:
                 while not q.empty():
                     q.get()
