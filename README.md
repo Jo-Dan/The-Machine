@@ -5,6 +5,11 @@ A Python program designed to emulate The Machine from [Person of Interest](http:
 It uses [OpenCV](http://opencv.org/) for face recognition and accepts voice commands, with randomly selected voices used in its responses.
 
 ### Installation
+##### The easiest way (Windows only)
+1. Download the repo
+2. Download the .exe file from [here](https://drive.google.com/file/d/0B_8BvSoNTOu6cTFCcXozQjU3Y1U/view?usp=sharing)
+3. Place the machine.exe file in the directory with the machine.py
+4. You're done :)
 ##### The easy way
 1. Install [WinPython](https://sourceforge.net/projects/winpython/files/)  (must be Python 2.7)
 2. Run `pip install -r requirements.txt`  
