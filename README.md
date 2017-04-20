@@ -6,10 +6,11 @@ It uses [OpenCV](http://opencv.org/) for face recognition and accepts voice comm
 
 ### Installation
 ##### The easiest way (Windows only)
-1. Download the repo
-2. Download the .exe file from [here](https://drive.google.com/file/d/0B_8BvSoNTOu6cTFCcXozQjU3Y1U/view?usp=sharing)
-3. Place the machine.exe file in the directory with the machine.py
-4. You're done :)
+1. Download the repo 
+2. Download and install  [AVbin](http://avbin.github.io/)  
+3. Download the .exe filefrom [here](https://drive.google.com/file/d/0B_8BvSoNTOu6cTFCcXozQjU3Y1U/view?usp=sharing)
+4. Place the machine.exe file in the directory with the machine.py
+5. You're done :)
 
 ##### The easy way
 1. Install [WinPython](https://sourceforge.net/projects/winpython/files/)  (must be Python 2.7)
