@@ -2,7 +2,7 @@
 A Python program designed to emulate The Machine from [Person of Interest](http://www.imdb.com/title/tt1839578/?ref_=nv_sr_1).
 
 ### What does it do?
-It uses [OpenCV](http://opencv.org/) for face recognition and accepts voice commands, with randomly selected voices used in its responses.
+It simulates the visual interface of The Machine. To accomplish this it uses [OpenCV](http://opencv.org/) for face recognition and accepts voice commands, with randomly selected voices used in its responses.
 
 ### Installation
 ##### The easiest way (Windows only)
