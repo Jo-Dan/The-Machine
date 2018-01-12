@@ -2,12 +2,12 @@
 A Python program designed to emulate The Machine from [Person of Interest](http://www.imdb.com/title/tt1839578/?ref_=nv_sr_1).
 
 ### What does it do?
-It simulates the visual interface of The Machine. To accomplish this it uses [OpenCV](http://opencv.org/) for face recognition and accepts voice commands, with randomly selected voices used in its responses.
+It simulates the visual interface of The Machine. To accomplish this it uses [OpenCV](http://opencv.org/) for face recognition and ~~accepts voice commands, with randomly selected voices used in its responses.~~ *(Amazon Ivona, the source of the voices, was discontinued earlier this year, meaning that unfortunately the voice mode no longer works. It would unfortunately be too much work for me to fix it at this point so it will stay broken unless someone else wants to fix it or I get the spare time and enough people care about it)*
 
 ### Installation
 ##### The easiest way (Windows only)
 1. Download the repo 
-2. Download and install  [AVbin](http://avbin.github.io/)  
+~~2. Download and install  [AVbin](http://avbin.github.io/)~~ (No longer required as voices don't work)
 3. Download the .exe filefrom [here](https://drive.google.com/file/d/0B_8BvSoNTOu6cTFCcXozQjU3Y1U/view?usp=sharing)
 4. Place the machine.exe file in the directory with the machine.py
 5. You're done :)
@@ -15,7 +15,7 @@ It simulates the visual interface of The Machine. To accomplish this it uses [Op
 ##### The easy way
 1. Install [WinPython](https://sourceforge.net/projects/winpython/files/)  (must be Python 2.7)
 2. Run `pip install -r requirements.txt`  
-3. Install [AVbin](http://avbin.github.io/) (for voice command mode, not required if you don't activate voice mode)
+3. ~~Install [AVbin](http://avbin.github.io/) (for voice command mode, not required if you don't activate voice mode)~~ (No longer required as voices don't work)
 4. You're done :)  
 
 ##### The manual way
@@ -45,10 +45,10 @@ Typing the command "info" into the console (you must be an ADMIN or ANALOG to us
 
 Typing the command "status" into the console (you must be an ADMIN or ANALOG to use this command) will bring up a status box containing the program uptime and number of subjects detected.
 
-##### Voice
+~~##### Voice
 If you are an ANALOG interface or an ADMIN you can type "voice" into the console, this activates the voice command mode, this essentially allows you to use any other command via speech recognition. To go back to typing simply give the command "voice" again.
 
-The voice commands and responses do require an internet connection, however, the program runs fine without voice mode. The program saves mp3 files of each individual word it says, meaning each only needs to be downloaded once (however you may not like how the random voice says that word, deleting the mp3 will result in the voice being randomized for that word again).
+~~The voice commands and responses do require an internet connection, however, the program runs fine without voice mode. The program saves mp3 files of each individual word it says, meaning each only needs to be downloaded once (however you may not like how the random voice says that word, deleting the mp3 will result in the voice being randomized for that word again).
 
 ##### Exit
 To exit the program simply type (or say, if you are in voice mode) "exit".
@@ -70,9 +70,9 @@ To exit the program simply type (or say, if you are in voice mode) "exit".
 ### Dependencies
 [Python 2.7](https://www.python.org/download/releases/2.7/) (64 bit) is required.
 
-#### Speech
+~~#### Speech
 
-| Package/module 								| pip command 								|
+~~| Package/module 								| pip command 								|
 | --------------------------------------------- | ----------------------------------------- |
 | pyglet (requires [AVbin](http://avbin.github.io/)) 	| `pip install pyglet` 						|
 | speech_recognition 							| `pip install SpeechRecognition` 			|
