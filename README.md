@@ -7,7 +7,7 @@ It simulates the visual interface of The Machine. To accomplish this it uses [Op
 ### Installation
 ##### The easiest way (Windows only)
 1. Download the repo 
-~~2. Download and install  [AVbin](http://avbin.github.io/)~~ (No longer required as voices don't work)
+2. ~~Download and install  [AVbin](http://avbin.github.io/)~~ (No longer required as voices don't work)
 3. Download the .exe filefrom [here](https://drive.google.com/file/d/0B_8BvSoNTOu6cTFCcXozQjU3Y1U/view?usp=sharing)
 4. Place the machine.exe file in the directory with the machine.py
 5. You're done :)
