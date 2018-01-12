@@ -48,7 +48,7 @@ Typing the command "status" into the console (you must be an ADMIN or ANALOG to 
 ~~##### Voice
 If you are an ANALOG interface or an ADMIN you can type "voice" into the console, this activates the voice command mode, this essentially allows you to use any other command via speech recognition. To go back to typing simply give the command "voice" again.
 
-~~The voice commands and responses do require an internet connection, however, the program runs fine without voice mode. The program saves mp3 files of each individual word it says, meaning each only needs to be downloaded once (however you may not like how the random voice says that word, deleting the mp3 will result in the voice being randomized for that word again).
+~~The voice commands and responses do require an internet connection, however, the program runs fine without voice mode. The program saves mp3 files of each individual word it says, meaning each only needs to be downloaded once (however you may not like how the random voice says that word, deleting the mp3 will result in the voice being randomized for that word again).~~
 
 ##### Exit
 To exit the program simply type (or say, if you are in voice mode) "exit".
@@ -78,7 +78,7 @@ To exit the program simply type (or say, if you are in voice mode) "exit".
 | speech_recognition 							| `pip install SpeechRecognition` 			|
 | natural.text 									| `pip install natural` 					|
 | Pyvona 										| `pip install pyvona` 						|
-| num2words 									| `pip install num2words` 					|
+| num2words 									| `pip install num2words` 					|~~
 
 #### Face Recognition
 
