@@ -285,7 +285,7 @@ def facerec():
                 if nbr_predicted != 0:
                     #print "Recognized as {} ({}). (Confidence : {})".format(nbr_predicted,
                     #                                                        subject_name[nbr_predicted], conf)
-                    # requests.post("https://maker.ifttt.com/trigger/Face_Detected/with/key/d0reP2BKasF7WXr86DXIxq",
+                    # requests.post("https://maker.ifttt.com/trigger/Face_Detected/with/key/KEY",
                     #                data={"value1":subject_type[nbr_predicted],
                     #                      "value2":subject_name[nbr_predicted],
                     #                      "value3":str(Camera_Number)})
