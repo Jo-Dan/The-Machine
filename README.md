@@ -5,13 +5,6 @@ A Python program designed to emulate The Machine from [Person of Interest](http:
 It simulates the visual interface of The Machine. To accomplish this it uses [OpenCV](http://opencv.org/) for face recognition and ~~accepts voice commands, with randomly selected voices used in its responses.~~ *(Amazon Ivona, the source of the voices, was discontinued earlier this year, meaning that unfortunately the voice mode no longer works. It would unfortunately be too much work for me to fix it at this point so it will stay broken unless someone else wants to fix it or I get the spare time and enough people care about it)*
 
 ### Installation
-##### The easiest way (Windows only)
-1. Download the repo 
-2. ~~Download and install  [AVbin](http://avbin.github.io/)~~ (No longer required as voices don't work)
-3. Download the .exe filefrom [here](https://drive.google.com/file/d/0B_8BvSoNTOu6cTFCcXozQjU3Y1U/view?usp=sharing)
-4. Place the machine.exe file in the directory with the machine.py
-5. You're done :)
-
 ##### The easy way
 1. Install [WinPython](https://sourceforge.net/projects/winpython/files/)  (must be Python 2.7)
 2. Run `pip install -r requirements.txt`  
