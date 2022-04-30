@@ -81,5 +81,5 @@ To exit the program simply type (or say, if you are in voice mode) "exit".
 | numpy 										| `pip install numpy` 						|
 
 You also have to install OpenCV. You can do **one of the following**:  
-~~1. Copy cv2.pyd (get it [from here](https://drive.google.com/file/d/0B_8BvSoNTOu6bFVZQVJ4dmxsZzQ/view?usp=sharing)) to PYTHON_INSTALLATION\Lib\site-packages ([more info](http://docs.opencv.org/3.1.0/d5/de5/tutorial_py_setup_in_windows.html))  
+~~1. Copy cv2.pyd (get it [from here](https://drive.google.com/file/d/0B_8BvSoNTOu6bFVZQVJ4dmxsZzQ/view?usp=sharing)) to PYTHON_INSTALLATION\Lib\site-packages ([more info](http://docs.opencv.org/3.1.0/d5/de5/tutorial_py_setup_in_windows.html))  ~~
 2. Build OpenCV with extra modules yourself ([more info](https://github.com/opencv/opencv_contrib))
