@@ -1,6 +1,8 @@
 # The Machine
 A Python program designed to emulate The Machine from [Person of Interest](http://www.imdb.com/title/tt1839578/?ref_=nv_sr_1).
 
+A slightly updated version of this program can be found at [The Machine Rebooted](https://github.com/Jo-Dan/The_Machine_Rebooted). Contributions and improvements welcome.
+
 ### What does it do?
 It simulates the visual interface of The Machine. To accomplish this it uses [OpenCV](http://opencv.org/) for face recognition and ~~accepts voice commands, with randomly selected voices used in its responses.~~ *(Amazon Ivona, the source of the voices, was discontinued earlier this year, meaning that unfortunately the voice mode no longer works. It would unfortunately be too much work for me to fix it at this point so it will stay broken unless someone else wants to fix it or I get the spare time and enough people care about it)*
 
